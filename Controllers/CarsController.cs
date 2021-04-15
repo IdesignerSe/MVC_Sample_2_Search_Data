@@ -19,9 +19,17 @@ namespace MVC_Sample_1.Controllers
         }
 
         // GET: Cars
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search)
         {
-            return View(await _context.Cars.ToListAsync());
+            if(String.IsNullOrEmpty(search))
+            {
+                return View(await _context.Cars.ToListAsync());
+            }
+            else
+            {
+                return View(await _context.Cars.Where(car => car.Brand.Contains(search)).ToListAsync());
+            }
+
         }
 
         // GET: Cars/Details/5

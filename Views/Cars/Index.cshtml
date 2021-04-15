@@ -9,6 +9,19 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form asp-controller="Cars" asp-action="Index">
+    <p>
+        <table>
+            <thead>
+                Search for:
+                <input type="text" name="search" />
+                <input type="submit" name="Search" />
+
+            </thead>
+        </table>
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
