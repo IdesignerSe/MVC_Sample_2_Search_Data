@@ -27,7 +27,11 @@ namespace MVC_Sample_1.Controllers
             }
             else
             {
-                return View(await _context.Cars.Where(car => car.Brand.Contains(search)).ToListAsync());
+                return View(await _context.Cars.
+                    Where(car => car.Brand.Contains(search)
+                     || car.Model.Contains(search)
+                     || car.Year.ToString().Contains(search)
+                    ).ToListAsync());
             }
 
         }
